@@ -24,7 +24,7 @@ class App extends Component {
       <>
         <div>
           <span>ОБЩЕЕ Кол-во: {todos.length}</span>
-          <span>Выполнeнных: {completedTodo}</span>{' '}
+          <span>Выполнeнных: {completedTodo}</span>
         </div>
         <TodoList todos={todos} onDeleteTodo={this.deleteTodo} />
       </>
