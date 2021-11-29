@@ -38,13 +38,22 @@ class App extends Component {
 
     return (
       <div className="App">
-        {/* <Section title="Please leave feedback">
-          <FeedbackOptions
-            options={options}
-            onLeaveFeedback={this.handleButtonClick}
-          />
-        </Section>
-        <Section title="Statistics">
+        <p title="Please leave feedback">
+          <>
+            {options.map(option => {
+              return (
+                <button
+                  type="button"
+                  onClick={this.handleButtonClick}
+                  name={option}
+                >
+                  {option}
+                </button>
+              );
+            })}
+          </>
+        </p>
+        {/* <Section title="Statistics">
           <Statistics
             good={good}
             neutral={neutral}
