@@ -28,10 +28,7 @@ class App extends Component {
   };
 
   handleButtonClick = e => {
-    const key = e.target.id;
-    this.setState(prevState => {
-      return { [key]: prevState[key] + 1 };
-    });
+    this.setState(prevState => ({ [e]: prevState[e] + 1 }));
   };
 
   render() {
@@ -50,7 +47,7 @@ class App extends Component {
             neutral={neutral}
             bad={bad}
             total={this.countTotalFeedback()}
-            positivePercentage={this.countPositiveFeedbackPercentage()}
+            positivePercentage={`${this.countPositiveFeedbackPercentage()}%`}
           />
         </div>
         {/* </p> */}
