@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import FeedbackOptions from './components/FeedbackOptions/FeedbackOptions';
 // import Vidget from './components/Vidget';
 // import TodoList from './components/TodoList/TodoList';
 // import initialTodos from './components/TodoList/todos.json';
@@ -35,34 +36,24 @@ class App extends Component {
 
   render() {
     const { good, neutral, bad } = this.state;
-    const options = Object.keys(this.state);
 
     return (
       <div className="App">
-        <p title="Please leave feedback">
-          <>
-            {options.map(option => {
-              return (
-                <button
-                  type="button"
-                  onClick={this.handleButtonClick}
-                  name={option}
-                >
-                  {option}
-                </button>
-              );
-            })}
-          </>
-          <div title="Statistics">
-            <Statistics
-              good={good}
-              neutral={neutral}
-              bad={bad}
-              total={this.countTotalFeedback()}
-              positivePercentage={this.countPositiveFeedbackPercentage()}
-            />
-          </div>
-        </p>
+        {/* <p title="Please leave feedback"> */}
+        <FeedbackOptions
+          options={Object.keys(this.state)}
+          onLeaveFeedback={this.handleButtonClick}
+        />
+        <div title="Statistics">
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbackPercentage()}
+          />
+        </div>
+        {/* </p> */}
       </div>
     );
   }
