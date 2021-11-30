@@ -3,6 +3,7 @@ import './App.css';
 // import Vidget from './components/Vidget';
 // import TodoList from './components/TodoList/TodoList';
 // import initialTodos from './components/TodoList/todos.json';
+import Statistics from './components/Statistics/Statistics';
 
 class App extends Component {
   state = {
@@ -52,16 +53,16 @@ class App extends Component {
               );
             })}
           </>
+          <div title="Statistics">
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={this.countTotalFeedback()}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
+            />
+          </div>
         </p>
-        {/* <Section title="Statistics">
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={this.countTotalFeedback()}
-            positivePercentage={this.countPositiveFeedbackPercentage()}
-          />
-        </Section> */}
       </div>
     );
   }
