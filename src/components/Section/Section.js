@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { Fragment } from 'react';
 import css from './Section.module.css';
 
 const Section = ({ title, children }) => (
