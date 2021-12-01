@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import FeedbackOptions from './components/FeedbackOptions/FeedbackOptions';
+import Section from './components/Section/Section';
 // import Vidget from './components/Vidget';
 // import TodoList from './components/TodoList/TodoList';
 // import initialTodos from './components/TodoList/todos.json';
@@ -36,12 +37,14 @@ class App extends Component {
 
     return (
       <div className="App">
-        {/* <p title="Please leave feedback"> */}
-        <FeedbackOptions
-          options={Object.keys(this.state)}
-          onLeaveFeedback={this.handleButtonClick}
-        />
-        <div title="Statistics">
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            options={Object.keys(this.state)}
+            onLeaveFeedback={this.handleButtonClick}
+          />
+        </Section>
+
+        <Section title="Statistics">
           <Statistics
             good={good}
             neutral={neutral}
@@ -49,8 +52,7 @@ class App extends Component {
             total={this.countTotalFeedback()}
             positivePercentage={`${this.countPositiveFeedbackPercentage()}%`}
           />
-        </div>
-        {/* </p> */}
+        </Section>
       </div>
     );
   }
